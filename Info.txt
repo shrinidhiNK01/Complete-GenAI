@@ -1,0 +1,72 @@
+GenAI:- ChatGPT,Meta Llama,GenAI 
+
+GenAI generates new data based on training sample, It can Generate Image,Text,Audio,Video
+Understand Complex pattern from data
+Content Generation
+Build Powerfull Application
+
+AI>ML>DL>GenAI+LLM
+
+1)Discriminative Model:- it predict whether the image is of cat or dog =>DeepLearning
+2)Generative Model:- Noise data/raw/Unstructured data -->New Creative Data
+
+Unsupervised Learning:- 
+=============================
+Clustering:- Kmeans ,DBScan 
+
+Supervised Learning:-
+===========================
+Classification
+Regression
+
+GenAI models are trained on huge amount of data
+while training a genai model ,its not necessary to give labled data 
+It tries to find relationships between the data 
+We give Unstructured data to LLM model for training purpose
+
+LLM:- 
+===============================
+ML Models that uses Dl algorithms to process and Understand Natural Language , These are trained on massive amount of data to learn patterns and entity of relationship in language
+
+It performs:-
+1)Text to Text Generation
+2)Text to Image Generation
+3)Image to Text Generation
+4)Code Generation
+5)Chatbot
+6)Summerizer
+7)Translation
+
+
+GenAI End to End Pipeline:-
+==============================
+1)Data Acquisition :- Available data(csv,txt,pdf,docs,xlsx) or Other data(DB,internet,API,scrapping) or No data(Create ur own data)Perform Data Augmentation(difference variance of a same data) or Biagram flip(Simply increasing the data with meaning)    or Back translation(converting the text to another language, and again back to the original language data) and additnal data /additional Noise
+
+2)Data Preparation:- 1)data cleaning(html,emoji,spelling correction),
+                     2)Basic preprocessing :- 1)Tokenisation(Sentance,word)
+                                              2)Optional Preprcessing:-
+                                                 1)stop word removal
+                                                 2)steaming
+                                                 3)lamatization
+                                                 4)punctuation removal
+                                                 5)lower case
+                                                 6)language detection
+                     3)advance preprocessing:- 1)Parts of speech training
+                                               2)Parsing
+                                               3)Coreference resolution
+3)Feature Engineering:- Text vectorization:-1)TFIDF
+                                            2)Bug of word
+                                            3)One hot
+                                            4)Transformers Model
+                                            5)wordzvee
+4)Modeling :- Use Opensource LLM or Paid LLM
+5)Evaluation :- Intrinsive or Extrinsive(Deploy)
+6)Deployment
+7)Monitoring and Model Updating
+
+Image Augumentation is a step where Augmentation are applied to existing images in our datasets this process can help improve the ability of ur model to generalize and thus perfoem more effective on unseen images 
+
+Corpus:- Entire text
+Vocabulary :- Unique word
+Documents :- 1 line
+word:- single word 
