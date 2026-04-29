@@ -37,6 +37,9 @@ It performs:-
 6)Summerizer
 7)Translation
 
+*chatgpt, codellma, images-diffussion models ,TTS(Text to Speech)models = ElivenLab
+*video generation model = Sora
+
 
 GenAI End to End Pipeline:-
 ==============================
