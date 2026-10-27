@@ -1,0 +1,867 @@
+COMPLETE GENAI + LANGCHAIN + LANGGRAPH + RAG + MCP + AGENTIC AI NOTES
+
+Beginner to Advanced Interview Crash Course
+
+Author: ChatGPT For: CSE Student Interview Preparation
+
+============================================================ SECTION 1 —
+WHAT IS AI, ML, DL, GENAI?
+============================================================
+
+Artificial Intelligence (AI)
+
+AI means making machines behave intelligently.
+
+Examples: - ChatGPT - Self-driving cars - Alexa - Recommendation systems
+
+Machine Learning (ML)
+
+Machine Learning is a subset of AI.
+
+Instead of hardcoding rules: - Machine learns patterns from data.
+
+Examples: - Spam detection - House price prediction - Fraud detection
+
+Deep Learning (DL)
+
+Deep Learning uses Neural Networks.
+
+Key ideas: - Input Layer - Hidden Layers - Output Layer - Weights -
+Bias - Activation Functions
+
+Popular architectures: - CNN - RNN - Transformers
+
+Generative AI
+
+Generative AI creates NEW content.
+
+Examples: - ChatGPT -> text - Midjourney -> images - GitHub Copilot ->
+code
+
+============================================================ SECTION 2 —
+HOW LLMs WORK
+============================================================
+
+LLM = Large Language Model
+
+Examples: - GPT - Claude - Gemini - Llama
+
+Core Idea:
+
+LLM predicts NEXT WORD.
+
+Example: Input: “I love eating”
+
+Possible next words: - pizza - dosa - biryani
+
+Training Process:
+
+1.  Collect huge text data
+2.  Tokenize text
+3.  Train transformer model
+4.  Learn patterns
+
+Important Terms:
+
+Token: Small text chunk.
+
+Context Window: How much text model remembers.
+
+Temperature: Controls randomness.
+
+Embedding: Vector representation of text.
+
+Fine-tuning: Training model on specific data.
+
+Inference: Using trained model.
+
+============================================================ SECTION 3 —
+TRANSFORMERS
+============================================================
+
+Transformer is the architecture behind modern LLMs.
+
+Key Concepts:
+
+1.  Self Attention
+2.  Multi-head Attention
+3.  Positional Encoding
+4.  Feed Forward Networks
+
+Self Attention:
+
+Model decides which words are important.
+
+Example: “The cat sat on the mat because it was tired.”
+
+“It” refers to cat.
+
+Attention helps model understand this.
+
+Formula: Attention(Q,K,V)
+
+============================================================ SECTION 4 —
+EMBEDDINGS ============================================================
+
+Embeddings convert text into vectors.
+
+Example: “dog” -> [0.23, 0.81, …]
+
+Similar words have similar vectors.
+
+Uses: - Semantic Search - RAG - Recommendation Systems
+
+Popular Embedding Models: - OpenAI Embeddings - BGE - Instructor -
+Sentence Transformers
+
+============================================================ SECTION 5 —
+VECTOR DATABASES
+============================================================
+
+Why Vector DB?
+
+Normal DB cannot efficiently search vectors.
+
+Vector DB stores embeddings.
+
+Popular Vector Databases:
+
+-   FAISS
+-   ChromaDB
+-   Pinecone
+-   Weaviate
+-   Milvus
+
+Workflow:
+
+1.  Convert document to chunks
+2.  Create embeddings
+3.  Store vectors
+4.  Search similar vectors
+
+============================================================ SECTION 6 —
+RAG (RETRIEVAL AUGMENTED GENERATION)
+============================================================
+
+Definition:
+
+RAG allows LLM to answer using external knowledge.
+
+Problem without RAG:
+
+LLM hallucinates.
+
+RAG Pipeline:
+
+1.  User Question
+2.  Convert query to embedding
+3.  Search vector DB
+4.  Retrieve relevant chunks
+5.  Send chunks + question to LLM
+6.  Generate answer
+
+Architecture:
+
+User -> Retriever -> Vector DB -> LLM
+
+Advantages:
+
+-   Updated knowledge
+-   Reduced hallucination
+-   Private data support
+
+============================================================ SECTION 7 —
+ADVANCED RAG
+============================================================
+
+1. CRAG (Corrective RAG)
+
+Checks if retrieved documents are useful.
+
+If bad retrieval: - Re-search - Improve context
+
+2. Self-RAG
+
+Model evaluates itself.
+
+It asks: - Is answer correct? - Do I need retrieval again?
+
+3. Graph RAG
+
+Uses graph relationships.
+
+4. Hybrid Search
+
+Combines: - Vector search - Keyword search
+
+============================================================ SECTION 8 —
+LANGCHAIN ============================================================
+
+LangChain is framework for LLM apps.
+
+Core Components:
+
+1.  Models
+2.  Prompts
+3.  Chains
+4.  Memory
+5.  Tools
+6.  Agents
+7.  Retrievers
+
+Installation:
+
+pip install langchain
+
+============================================================ SECTION 9 —
+LANGCHAIN MODELS
+============================================================
+
+Example:
+
+from langchain_openai import ChatOpenAI
+
+llm = ChatOpenAI( model=“gpt-4o-mini”, temperature=0 )
+
+response = llm.invoke(“What is AI?”) print(response.content)
+
+============================================================ SECTION 10
+— PROMPT ENGINEERING
+============================================================
+
+Good prompt:
+
+-   Clear
+-   Specific
+-   Structured
+
+Types:
+
+1.  Zero-shot
+2.  One-shot
+3.  Few-shot
+4.  Chain of Thought
+
+Example:
+
+prompt = ’’’ You are Python expert. Explain loops simply. ’’’
+
+============================================================ SECTION 11
+— OUTPUT PARSERS
+============================================================
+
+Used to structure output.
+
+Example:
+
+from langchain.output_parsers import StructuredOutputParser
+
+Useful for: - JSON output - APIs - Validation
+
+============================================================ SECTION 12
+— CHAINS ============================================================
+
+Chain = sequence of steps.
+
+Example:
+
+Prompt -> LLM -> Output
+
+Code:
+
+from langchain_core.prompts import ChatPromptTemplate
+
+prompt = ChatPromptTemplate.from_template( “Explain {topic}” )
+
+chain = prompt | llm
+
+response = chain.invoke({“topic”:“RAG”})
+
+============================================================ SECTION 13
+— RUNNABLES ============================================================
+
+Runnables are composable components.
+
+Operators:
+
+(pipe operator)
+
+Example:
+
+chain = prompt | llm
+
+Benefits:
+
+-   Clean
+-   Modular
+-   Scalable
+
+============================================================ SECTION 14
+— DOCUMENT LOADERS
+============================================================
+
+Used to load files.
+
+Examples:
+
+-   PDFLoader
+-   TextLoader
+-   CSVLoader
+-   WebBaseLoader
+
+Code:
+
+from langchain_community.document_loaders import PyPDFLoader
+
+loader = PyPDFLoader(“file.pdf”) docs = loader.load()
+
+============================================================ SECTION 15
+— TEXT SPLITTERS
+============================================================
+
+Why split text?
+
+LLMs have token limits.
+
+Types:
+
+-   Character splitter
+-   Recursive splitter
+
+Code:
+
+from langchain.text_splitter import RecursiveCharacterTextSplitter
+
+splitter = RecursiveCharacterTextSplitter( chunk_size=500,
+chunk_overlap=50 )
+
+chunks = splitter.split_documents(docs)
+
+============================================================ SECTION 16
+— VECTOR STORES
+============================================================
+
+Example using Chroma:
+
+from langchain.vectorstores import Chroma
+
+db = Chroma.from_documents( chunks, embedding_model )
+
+============================================================ SECTION 17
+— RETRIEVERS
+============================================================
+
+Retriever finds relevant chunks.
+
+Code:
+
+retriever = db.as_retriever()
+
+docs = retriever.invoke(“What is RAG?”)
+
+============================================================ SECTION 18
+— COMPLETE RAG PROJECT
+============================================================
+
+Step-by-step:
+
+1.  Load PDF
+2.  Split text
+3.  Create embeddings
+4.  Store in vector DB
+5.  Retrieve chunks
+6.  Generate answer
+
+Full Code:
+
+from langchain_openai import ChatOpenAI from langchain_openai import
+OpenAIEmbeddings from langchain_community.document_loaders import
+PyPDFLoader from langchain.text_splitter import
+RecursiveCharacterTextSplitter from langchain.vectorstores import Chroma
+from langchain.chains import RetrievalQA
+
+loader = PyPDFLoader(“notes.pdf”) docs = loader.load()
+
+splitter = RecursiveCharacterTextSplitter( chunk_size=500,
+chunk_overlap=50 )
+
+chunks = splitter.split_documents(docs)
+
+embeddings = OpenAIEmbeddings()
+
+db = Chroma.from_documents( chunks, embeddings )
+
+retriever = db.as_retriever()
+
+llm = ChatOpenAI()
+
+qa = RetrievalQA.from_chain_type( llm=llm, retriever=retriever )
+
+response = qa.invoke(“Explain transformers”)
+
+print(response)
+
+============================================================ SECTION 19
+— MEMORY IN LLMs
+============================================================
+
+LLMs do NOT remember naturally.
+
+Types:
+
+1.  Short-term memory
+2.  Long-term memory
+
+Short-term:
+
+Conversation context.
+
+Long-term:
+
+Stored memory in database.
+
+============================================================ SECTION 20
+— LANGGRAPH ============================================================
+
+LangGraph is framework for building AGENTS.
+
+Why LangGraph?
+
+Complex workflows.
+
+Features:
+
+-   State management
+-   Loops
+-   Branching
+-   Persistence
+-   Human-in-loop
+
+============================================================ SECTION 21
+— LANGGRAPH CORE CONCEPTS
+============================================================
+
+Nodes:
+
+Functions.
+
+Edges:
+
+Connections.
+
+State:
+
+Shared data.
+
+Graph:
+
+Workflow.
+
+Example State:
+
+from typing import TypedDict
+
+class AgentState(TypedDict): question: str answer: str
+
+============================================================ SECTION 22
+— SIMPLE LANGGRAPH
+============================================================
+
+Code:
+
+from langgraph.graph import StateGraph from typing import TypedDict
+
+class State(TypedDict): message: str
+
+def chatbot(state): return {“message”: “Hello”}
+
+graph = StateGraph(State)
+
+graph.add_node(“chatbot”, chatbot)
+
+graph.set_entry_point(“chatbot”)
+
+app = graph.compile()
+
+print(app.invoke({“message”:“hi”}))
+
+============================================================ SECTION 23
+— WORKFLOWS ============================================================
+
+1. Sequential Workflow
+
+Step A -> Step B -> Step C
+
+2. Parallel Workflow
+
+Multiple tasks simultaneously.
+
+3. Conditional Workflow
+
+if-else logic.
+
+4. Iterative Workflow
+
+Loops.
+
+============================================================ SECTION 24
+— AGENTS ============================================================
+
+Agent = AI system that can: - Think - Decide - Use tools - Act
+
+Components:
+
+1.  LLM
+2.  Tools
+3.  Memory
+4.  Planning
+5.  Reasoning
+
+============================================================ SECTION 25
+— TOOLS ============================================================
+
+Tool = external capability.
+
+Examples:
+
+-   Search tool
+-   Calculator
+-   Database tool
+
+Example:
+
+from langchain.tools import tool
+
+@tool def add(a:int,b:int): return a+b
+
+============================================================ SECTION 26
+— TOOL CALLING
+============================================================
+
+LLM decides: - which tool - when to use - tool arguments
+
+Flow:
+
+User -> LLM -> Tool -> LLM -> Final Answer
+
+============================================================ SECTION 27
+— MCP (MODEL CONTEXT PROTOCOL)
+============================================================
+
+Definition:
+
+Protocol for connecting LLMs with tools/services.
+
+Why MCP?
+
+Standard communication.
+
+MCP Components:
+
+1.  MCP Host
+2.  MCP Client
+3.  MCP Server
+
+Examples:
+
+-   Claude Desktop
+-   IDE integrations
+
+============================================================ SECTION 28
+— MCP ARCHITECTURE
+============================================================
+
+Flow:
+
+User -> Client -> MCP Server -> Tool
+
+Server exposes: - tools - prompts - resources
+
+============================================================ SECTION 29
+— MCP SERVER
+============================================================
+
+Example:
+
+A server exposing: - database access - filesystem - APIs
+
+============================================================ SECTION 30
+— OLLAMA ============================================================
+
+Ollama runs local LLMs.
+
+Installation:
+
+Download Ollama.
+
+Commands:
+
+ollama run llama3
+
+Benefits:
+
+-   Offline
+-   Free
+-   Private
+
+============================================================ SECTION 31
+— STREAMING ============================================================
+
+Streaming = token-by-token output.
+
+Useful for:
+
+ChatGPT-like UI.
+
+============================================================ SECTION 32
+— OBSERVABILITY
+============================================================
+
+Monitoring AI systems.
+
+Tools:
+
+-   LangSmith
+-   Weights & Biases
+
+Metrics:
+
+-   latency
+-   token usage
+-   failures
+
+============================================================ SECTION 33
+— HUMAN IN THE LOOP
+============================================================
+
+Human reviews AI actions.
+
+Used in:
+
+-   finance
+-   healthcare
+-   legal systems
+
+============================================================ SECTION 34
+— INTERVIEW QUESTIONS
+============================================================
+
+Q1. What is RAG? Answer: RAG combines retrieval + generation using
+external documents.
+
+Q2. Difference between LangChain and LangGraph? Answer: LangChain =
+chains and components. LangGraph = advanced workflows and agents.
+
+Q3. What is vector database? Answer: Database optimized for embeddings.
+
+Q4. What is hallucination? Answer: When LLM gives wrong/confident fake
+answer.
+
+Q5. What is embedding? Answer: Vector representation of text.
+
+============================================================ SECTION 35
+— COMPLETE END-TO-END ARCHITECTURE
+============================================================
+
+User ↓ Frontend ↓ API ↓ LangGraph Agent ↓ Retriever ↓ Vector DB ↓ LLM ↓
+Response
+
+============================================================ SECTION 36
+— IMPORTANT PYTHON LIBRARIES
+============================================================
+
+pip install langchain pip install langgraph pip install openai pip
+install chromadb pip install faiss-cpu pip install sentence-transformers
+pip install streamlit
+
+============================================================ SECTION 37
+— STREAMLIT CHATBOT
+============================================================
+
+Code:
+
+import streamlit as st
+
+st.title(“AI Chatbot”)
+
+user_input = st.text_input(“Ask”)
+
+if user_input: st.write(“You asked:”, user_input)
+
+Run:
+
+streamlit run app.py
+
+============================================================ SECTION 38
+— FASTAPI BACKEND
+============================================================
+
+from fastapi import FastAPI
+
+app = FastAPI()
+
+@app.get(“/”) def home(): return {“message”:“hello”}
+
+Run:
+
+uvicorn main:app –reload
+
+============================================================ SECTION 39
+— COMMON INTERVIEW TERMS
+============================================================
+
+Token: Small text unit.
+
+Inference: Using model.
+
+Fine-tuning: Training existing model.
+
+Hallucination: Fake answer.
+
+Latency: Response time.
+
+Temperature: Creativity control.
+
+============================================================ SECTION 40
+— COMPLETE LEARNING ROADMAP
+============================================================
+
+Step 1: Learn Python
+
+Step 2: Learn APIs + JSON
+
+Step 3: Learn LLM basics
+
+Step 4: Learn Prompt Engineering
+
+Step 5: Learn LangChain
+
+Step 6: Learn RAG
+
+Step 7: Learn Agents
+
+Step 8: Learn LangGraph
+
+Step 9: Build Projects
+
+Step 10: Deploy applications
+
+============================================================ SECTION 41
+— PROJECT IDEAS
+============================================================
+
+1.  PDF Chatbot
+2.  Resume Analyzer
+3.  YouTube Chatbot
+4.  AI Coding Assistant
+5.  AI Research Agent
+6.  Blog Writing Agent
+7.  Multi-agent System
+
+============================================================ SECTION 42
+— DEPLOYMENT
+============================================================
+
+Platforms:
+
+-   Render
+-   Railway
+-   Vercel
+-   AWS
+-   Azure
+-   GCP
+
+============================================================ SECTION 43
+— IMPORTANT FILE STRUCTURE
+============================================================
+
+project/ │ ├── app.py ├── requirements.txt ├── .env ├── vector_db/ ├──
+data/ └── utils/
+
+============================================================ SECTION 44
+— ENV VARIABLES
+============================================================
+
+Create .env
+
+OPENAI_API_KEY=your_key
+
+============================================================ SECTION 45
+— COMMON ERRORS
+============================================================
+
+1.  API key missing
+2.  Token limit exceeded
+3.  Wrong embeddings
+4.  Empty retrieval
+5.  Version mismatch
+
+============================================================ SECTION 46
+— FINAL INTERVIEW STRATEGY
+============================================================
+
+If interviewer asks: “Do you know everything?”
+
+Do NOT say yes.
+
+Say: “I understand the architecture and fundamentals well, and I am
+actively building projects using LangChain, RAG, and LangGraph.”
+
+Focus on: - confidence - architecture understanding - clear explanation
+
+============================================================ SECTION 47
+— ULTRA IMPORTANT CONCEPTS
+============================================================
+
+Must Know:
+
+-   LLM
+-   Transformer
+-   Embeddings
+-   Vector DB
+-   RAG
+-   LangChain
+-   LangGraph
+-   Agents
+-   Tools
+-   MCP
+-   Prompt Engineering
+
+============================================================ SECTION 48
+— SIMPLE ONE-LINE DEFINITIONS
+============================================================
+
+LLM: Large language model.
+
+Embedding: Vector representation of data.
+
+RAG: Retrieval + Generation.
+
+Agent: AI system that can act.
+
+Vector DB: Database for embeddings.
+
+LangChain: Framework for LLM apps.
+
+LangGraph: Framework for agent workflows.
+
+============================================================ SECTION 49
+— FINAL REVISION
+============================================================
+
+Tonight revise: 1. What is LLM? 2. What is RAG? 3. Why embeddings? 4.
+What is vector DB? 5. Difference between LangChain vs LangGraph 6. What
+are agents? 7. MCP basics 8. Tool calling 9. Memory 10. Basic
+architecture
+
+============================================================ SECTION 50
+— QUICK 5-MINUTE SUMMARY
+============================================================
+
+LLM predicts next word. Embeddings convert text to vectors. Vector DB
+stores embeddings. Retriever fetches relevant chunks. RAG combines
+retrieval with generation. LangChain builds LLM pipelines. LangGraph
+builds AI agents/workflows. MCP standardizes tool communication. Agents
+use tools + memory + reasoning.
+
+END OF DOCUMENT

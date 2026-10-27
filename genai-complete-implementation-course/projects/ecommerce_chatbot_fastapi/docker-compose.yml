@@ -1,0 +1,6 @@
+services:
+  ecommerce-chatbot:
+    build: .
+    ports:
+      - "8001:8000"
+

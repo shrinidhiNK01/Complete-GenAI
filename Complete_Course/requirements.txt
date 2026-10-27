@@ -1,0 +1,13 @@
+numpy
+scikit-learn
+pandas
+matplotlib
+torch
+torchvision
+transformers
+faiss-cpu
+fastapi
+uvicorn
+python-multipart
+sentence-transformers
+scipy

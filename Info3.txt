@@ -1,0 +1,25 @@
+LLama-Index
+=====================
+LLama index - OPen Source Project-, Framework for Creating LLM Based applications
+
+Main Purpose behind this LlamaIndex :- To Connect custom data Resource with large Languse model. :- LlamaIndex can connect with any API'S(Notion,discord,salesforce) any models(Hugging Face , Anthropic) any raw files(ppt, pdf,excel,images, audios), any vector database(Pinecone) , Nosql database(MongoDb) ,any sql database(oracle , postgres sql, mysql) 
+
+Framework :- Set of rules , conventions , tools, for developing the application
+
+after collecting all data(structured, unstructured, from database,documents , API's) it gets pieced into chunks , those chunks will be embedded in VectorDB through which it is fedup into in LLM(GPT-4, GEMINI)
+
+Data Ingestion:- User quering VectorDB for the data , VectorDB will find out the relevent text and send it to LLM through indexing
+from LLM , we are getting the queried answer , the process that undergoes inside vectorDB is similarity search that gives the relevent chunks of data , this whole architecture is built using LlamaIndex
+
+LlamaIndex gives 
+======================
+Prompt templates
+Agent
+tools
+Chain
+memory
+Document Holder
+
+Indexing, Sorting, Query, Evaluation 
+Llamalndex provides the key tools to augment your LLM
+applications with data

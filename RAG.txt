@@ -1,0 +1,32 @@
+RAG is called Retrieval augmented generation, is an architecture used to help LLMs model like gpt- 4,
+Gemini, Gemma, LLAMA2, MISTRAL to provide a better response by using relevant information from
+additional sources and reduces the chance that llm will lead to incorrect information
+or
+RAG is a technique that enhances language model generation by incorporating external knowledge.This
+is typically done by retrieving relevant information from a large corpus of documents and using that
+information to inform the generation process.
+or
+With RAG, the LLM is able to leverage knowledge and information that is not necessarily in its weights
+means it is not inside the training.
+
+Why we should use RAG?
+
+1. Limited knowledge access of LLM
+2. Lack of transparency: LLMs struggle to provide transparent or relevant information
+3. Hallucinations in answers
+
+RAG Architecture:-
+==========================
+1)Ingestion
+2)Retrieval :- Obtaining the data from database
+3)Generation 
+4)Augumentation:-enhancing Info using LLM 
+
+Embedding:- Numerical representation of Text extracted
+
+docs ----> extract data ---> converted into embedding ----> Build semantic index ---> store in knowledge base
+user---> question ---> converted into embedding ---->Perform semantic search on knowledge base
+give the ranked result 
+
+Linear algebra is a a collection of numberrs ina matrix formate 
+vector is a representation of a point 

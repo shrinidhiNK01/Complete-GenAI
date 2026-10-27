@@ -1,0 +1,8 @@
+{"instruction": "Classify this support ticket.", "input": "The headphones stopped working after two weeks.", "output": "warranty_issue"}
+{"instruction": "Extract invoice fields.", "input": "Invoice INV-100 total $500 due 2026-07-15.", "output": "invoice_number: INV-100; amount: 500; due_date: 2026-07-15"}
+{"instruction": "Classify this support ticket.", "input": "I was charged twice for the same order.", "output": "billing_issue"}
+{"instruction": "Extract invoice fields.", "input": "Invoice INV-300 total $75 due 2026-09-20.", "output": "invoice_number: INV-300; amount: 75; due_date: 2026-09-20"}
+{"instruction": "Rewrite in polite customer support tone.", "input": "We cannot refund this because it is too late.", "output": "I am sorry, but this order is outside the refund window, so we are unable to process a refund."}
+{"instruction": "Rewrite in polite customer support tone.", "input": "Send us photos or we cannot help.", "output": "Please share clear photos of the damaged product so our support team can review the issue."}
+{"instruction": "Rewrite in polite customer support tone.", "input": "Your order is late. Wait more.", "output": "Your order is taking longer than expected. Please allow a little more time while we check the shipment status."}
+{"instruction": "Extract invoice fields.", "input": "Invoice INV-200 total $1250 due 2026-08-01.", "output": "invoice_number: INV-200; amount: 1250; due_date: 2026-08-01"}

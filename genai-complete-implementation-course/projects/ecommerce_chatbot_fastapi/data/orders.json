@@ -1,0 +1,17 @@
+[
+  {
+    "order_id": "ORD1001",
+    "user_id": "user_1",
+    "status": "in transit",
+    "carrier": "ShipFast",
+    "tracking_number": "TRK123456"
+  },
+  {
+    "order_id": "ORD1002",
+    "user_id": "user_2",
+    "status": "delivered",
+    "carrier": "BluePost",
+    "tracking_number": "TRK999000"
+  }
+]
+

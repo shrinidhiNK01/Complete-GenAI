@@ -1,0 +1,155 @@
+GenAI:-
+======================
+Generative Image Model(GANs, Various Different
+Models
+Generative Language Model(LLMs)
+
+Generative AI with Large Language Models
+===========================================
+When I refer to large language models, I mean natural
+language processing. Since NLP forms the foundation of
+massive language generated models(LLMs).
+
+OpenAI LLM Models
+=======================
+GPT-4 and GPT-4 Turbo: A set of models that improve on GPT-3.5 and can understand
+as well as generate natural language or code
+o GPT-3.5: A set of models that improve on GPT-3 and can understand as well as
+generate natural language or code
+o DALL-E: A model that can generate and edit images given a natural
+o TTS: A set of models that can convert text into natural sounding
+o Whisper: A model that can convert audio into text
+
+Google AI LLM models
+======================
+o PaLM2
+o Gemini-pro
+o Gemini -pro-vision
+
+Meta AI LLM Models
+======================
+LlaMA & LlaMA2
+
+Open Source LLM Models
+=======================
+BLOOM
+Llama 2
+PaLM
+Falcon
+Claude
+MPT-30B
+Stablelm
+
+Explore Generative Model APIs
+===============================
+· OpenAI API
+. Hugging Face API
+· Gemini API
+
+Framework for Developing LLM application
+==========================================
+. LangChain
+. Chainlit
+. Llama Index2
+
+Vector Databases
+====================
+. ChromaDB
+· Waviet
+· Pinecone
+· OpenAI Faiss
+
+Tools and Framework for Web-Application
+==========================================
+· Streamlit
+· Gradio
+· FastAPI
+· Flask
+
+Deployment of LLM model
+===========================
+· AWS
+· GCP
+· Azure
+· LangServe
+. Hugging Face Spaces
+
+Few Advance Topics:
+===========================
+. ChatGPT: Understanding of Chat Gpt Training and RLHF (Reinforcement
+learning through human feedback) Concept
+. RAG :Retrieval-Augmented Generation (RAG) Systems
+. PEFT :Parametric efficient fine tuning
+. Adaptive Ranking: low rank adaptation(LoRa) and Quantization low rank
+Adaptation(Qlora)
+. Evaluation of LLMs: Find evaluation metrics of results c
+LLM
+
+
+AI:-
+========
+Human---->Intelligence------>Mathematical Representation --------->Artificial Intelligence-> Make Machines learn from this Maths
+
+CNN:- Convolution + Pooling + ANN
+
+GENAI:-
+=========
+1)Descriminative AI :- Linear regression, LSTM, CNN (Model that do Specific task, Limited data, Generative model type :- Image to Image homogenous model)
+2)Generative AI :- GAN, Markove models, AutoEncoders, Variational Auto Encoder ===> ANN
+Generate general task, Huge data 
+
+Image to Image Translation |= homogenous
+Text to Text Translation   |
+
+Image to Text Translation  |= heterogeneous or multimodel or diffusion model
+Text to Image Translation  |
+
+ANN
+=========
+for tabular data ,Structured data
+Categorical data = Conteneous data
+Numerical data = Ordinal, Nominal
+
+CNN
+=========
+Image Processing
+Image models:- VGG , Resnet, Enception, YOLO, SSD , RCNN} Image Classification ,
+Detectron, Unet, Vnet }Segmentation
+Vision Based Model 
+Convolution + Pooling + Fully Connected Network
+Images | Videos
+
+1>Image classification = Efficient Det,VGG,Resnet,Densenet
+2>Object detection (Localisation + Classification) = YOLO,SSD,FasterRcNN
+3>Object Segmentation = MaskRCNN , U-NET , V-NET
+4>Object Tracking
+5>OCR = Amazon OCR, Adobe OCR 
+
+Transfer Learning :- 
+=========================
+Use the previous learning for the future task
+model used = Imagenet = CNN => same knowledge,classification + Pretuning 
+
+Fine Tuning:- Modified previous learning according to the requirements, Retraining till it permanently changes its weights tone, behaviour, style 
+
+RNN
+=======
+Sequential data (Audio, where time and sequence matters)
+ANN + Feedback Loop
+
+NLP:-  Language Model
+=========
+Text Generation
+Text Translation 
+Text classification 
+Text summarizer 
+Chatbot(conversational model)
+Question Answering 
+
+These tasks are solved using RNN and Memory units(LSTM,GRU)
+
+Evolution
+----------
+RNN ---> LSTM ----->Encoder-Decoder ---->Attention ----->Transformer -----> LLM(BERT,GPT => bASED ON THE TRANSFORMER)--->chatgpt training ---> Transfer training & Fine tune NLP
+using this LLM , we are making Genai
+diffusion = vision + sequencing

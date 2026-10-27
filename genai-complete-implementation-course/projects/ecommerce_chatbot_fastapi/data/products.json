@@ -1,0 +1,27 @@
+[
+  {
+    "sku": "RUN-100",
+    "name": "AeroRun Shoes",
+    "category": "footwear",
+    "description": "Lightweight running shoes for daily training and city runs.",
+    "price": "$89",
+    "tags": ["shoe", "running", "fitness", "lightweight"]
+  },
+  {
+    "sku": "BAG-200",
+    "name": "UrbanPack Bag",
+    "category": "bags",
+    "description": "Water-resistant backpack with laptop storage and travel pockets.",
+    "price": "$59",
+    "tags": ["bag", "travel", "laptop", "water-resistant"]
+  },
+  {
+    "sku": "AUD-300",
+    "name": "FocusSound Headphones",
+    "category": "audio",
+    "description": "Wireless noise-reducing headphones for work and study.",
+    "price": "$129",
+    "tags": ["headphone", "audio", "wireless", "noise"]
+  }
+]
+

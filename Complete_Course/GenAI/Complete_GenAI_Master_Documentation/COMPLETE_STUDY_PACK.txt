@@ -1,0 +1,272 @@
+COMPLETE GENAI, LANGCHAIN, LANGGRAPH, RAG, MCP, AND OLLAMA STUDY PACK
+
+This is a plain text interview revision file. The full detailed version is split into multiple Markdown files in the same outputs folder.
+
+START HERE
+
+Generative AI creates new content. LLMs are Large Language Models trained to predict the next token. A token is a small piece of text. A prompt is the instruction. A response is the generated output. A context window is the amount of text the model can consider at once. Temperature controls randomness.
+
+The main problem with LLMs is that they can hallucinate, have outdated knowledge, cannot automatically access private data, and cannot fit unlimited documents in context.
+
+LangChain helps build LLM apps by connecting components: models, prompts, parsers, document loaders, text splitters, embeddings, vector stores, retrievers, tools, and agents.
+
+LangGraph helps build reliable multi-step stateful workflows. It uses state, nodes, edges, conditional routing, loops, persistence, streaming, human-in-the-loop, time travel, and memory.
+
+RAG means Retrieval-Augmented Generation. It retrieves relevant documents and gives them to the LLM so the answer is grounded.
+
+MCP means Model Context Protocol. It standardizes how AI applications connect to external tools and data sources.
+
+Ollama runs LLMs locally through a CLI and API.
+
+
+SECTION 1: CORE TERMS
+
+LLM: model that generates text by predicting tokens.
+Prompt: instruction given to model.
+System message: high-priority behavior instruction.
+User message: user query.
+Assistant message: model response.
+Tool message: result from a tool.
+Context window: maximum text the model can see.
+Temperature: randomness setting.
+Embedding: vector representing meaning.
+Vector store: database for embeddings.
+Retriever: returns relevant documents for a query.
+Tool: function the model can call.
+Agent: model-driven loop that can decide actions.
+Memory: stored context or user information.
+Persistence: saved state for resume/debugging.
+Streaming: output shown gradually.
+
+
+SECTION 2: LANGCHAIN
+
+LangChain is used for composing LLM applications.
+
+Important pieces:
+Models call LLMs.
+Prompts format instructions.
+Output parsers convert responses.
+Runnables provide invoke, batch, stream, and async methods.
+Documents store page_content and metadata.
+Loaders ingest files, websites, transcripts, or databases.
+Splitters break large text into chunks.
+Embeddings convert text into vectors.
+Vector stores save vectors.
+Retrievers return relevant documents.
+Tools expose functions.
+Agents use tools in a loop.
+
+Basic chain:
+prompt -> model -> parser
+
+RAG chain:
+question -> retriever -> context -> prompt -> model -> answer
+
+Agent loop:
+user -> model -> tool call -> tool result -> model -> final answer
+
+Best practices:
+Use clear prompts.
+Use structured output for application data.
+Keep tools typed and narrow.
+Store source metadata.
+Evaluate retrieval and generation.
+
+
+SECTION 3: RAG
+
+RAG solves the problem of private, recent, large, or domain-specific knowledge.
+
+Indexing:
+Documents -> load -> clean -> split -> embed -> store in vector DB
+
+Query:
+Question -> embed -> retrieve -> rerank/format -> prompt LLM -> answer with sources
+
+Chunking is critical. Good chunks contain one complete idea. Use overlap to preserve boundary context.
+
+Retrieval types:
+Similarity search finds semantically close chunks.
+Keyword search finds exact words.
+Hybrid search combines both.
+MMR increases diversity.
+Multi-query retrieval searches multiple rewritten queries.
+Parent document retrieval searches small chunks but returns larger sections.
+Contextual compression removes irrelevant text from retrieved chunks.
+
+Advanced RAG:
+Corrective RAG grades retrieval and fixes weak retrieval.
+Self-RAG lets the system judge retrieval and answer support.
+Agentic RAG lets the model decide when to retrieve and whether to retry.
+Graph RAG uses relationships between entities.
+
+RAG failures:
+Retriever misses correct chunk.
+Chunks are too big or too small.
+Metadata is missing.
+Prompt allows hallucination.
+Vector index is stale.
+Model ignores important context.
+
+RAG evaluation:
+Retrieval precision, recall, MRR, nDCG.
+Answer faithfulness, relevance, correctness, citation accuracy, completeness.
+
+
+SECTION 4: LANGGRAPH
+
+LangGraph models workflows as graphs.
+
+State is shared data.
+Node is a function.
+Edge connects nodes.
+Conditional edge routes based on state.
+Checkpointer saves state.
+Thread identifies a conversation/run.
+
+Workflow types:
+Sequential: fixed order.
+Parallel: independent branches.
+Conditional: route based on classification.
+Iterative: repeat until quality is good.
+
+Agent graph:
+model node -> if tool call then tool node -> model node -> final answer
+
+Persistence saves checkpoints. It enables resume, human approval, memory, time travel, and debugging.
+
+Human-in-the-loop pauses workflow for approval. Use it before risky actions like payment, deletion, email sending, legal output, or production database writes.
+
+Short-term memory is within one thread. Long-term memory persists across threads.
+
+Memory is not RAG. Memory remembers user or conversation facts. RAG retrieves external knowledge.
+
+
+SECTION 5: MCP
+
+MCP stands for Model Context Protocol.
+
+Architecture:
+MCP Host -> MCP Client -> MCP Server
+
+Host is the AI app.
+Client connects to one MCP server.
+Server exposes capabilities.
+
+MCP server exposes:
+Tools: actions.
+Resources: readable context/data.
+Prompts: reusable templates.
+
+MCP data layer uses JSON-RPC style messages. Transport can be STDIO for local servers or HTTP for remote servers.
+
+Lifecycle:
+connect -> initialize -> negotiate capabilities -> list tools/resources/prompts -> call tools/read resources -> return results -> close
+
+Security:
+Use least privilege.
+Authenticate remote servers.
+Validate inputs.
+Require approval for dangerous tools.
+Log tool calls.
+Never expose secrets.
+Treat retrieved content as untrusted.
+
+
+SECTION 6: OLLAMA
+
+Ollama runs local models.
+
+Useful for:
+privacy, offline usage, local demos, local RAG, lower cost experimentation.
+
+Default API:
+http://localhost:11434/api
+
+Commands:
+ollama pull llama3.2
+ollama run llama3.2
+ollama list
+ollama rm llama3.2
+
+Embeddings are available through embedding models such as embeddinggemma or all-minilm.
+
+Local RAG:
+local documents -> local embeddings -> local vector DB -> local chat model -> answer
+
+Tradeoffs:
+Local models depend on hardware. Cloud models are often stronger. Local models give privacy and control.
+
+
+SECTION 7: INTERVIEW ANSWERS
+
+What is RAG?
+RAG is Retrieval-Augmented Generation. It retrieves relevant external context and gives it to the LLM so the answer is grounded in documents.
+
+What is LangChain?
+LangChain is a framework for building LLM apps by composing prompts, models, parsers, retrievers, tools, and agents.
+
+What is LangGraph?
+LangGraph is a framework for reliable stateful workflows and agents using state, nodes, edges, persistence, streaming, memory, and human approval.
+
+LangChain vs LangGraph?
+LangChain provides components. LangGraph orchestrates stateful multi-step workflows.
+
+What is MCP?
+MCP is a standard protocol that lets AI apps connect to external tools, resources, and prompts through MCP servers.
+
+What is Ollama?
+Ollama is a local LLM runtime with CLI and API support for chat and embeddings.
+
+What is memory?
+Memory stores conversation or user information. Short-term memory is within a thread. Long-term memory works across threads.
+
+Memory vs RAG?
+Memory remembers user/context facts. RAG retrieves external knowledge from documents.
+
+How to reduce hallucination?
+Use RAG, citations, tools, validation, structured output, clear prompts, and evaluation.
+
+How to build a PDF chatbot?
+Load PDFs, split text, embed chunks, store vectors, retrieve chunks for a question, prompt the model, answer with citations, and evaluate.
+
+SECTION 8: ADVANCED PRODUCTION TOPICS
+
+Transformer basics:
+Modern LLMs are usually based on Transformers. Tokenization converts text into tokens. Embeddings convert tokens into vectors. Attention lets each token focus on important related tokens. Feed-forward layers transform representations. Positional information helps the model understand order.
+
+RAG vs fine-tuning:
+Use RAG for changing, private, citeable knowledge. Use fine-tuning for repeated behavior, style, and task patterns. RAG changes what knowledge is supplied at runtime. Fine-tuning changes how the model behaves.
+
+PEFT and LoRA:
+PEFT means Parameter-Efficient Fine-Tuning. LoRA trains small adapter weights instead of all model weights. It is cheaper and easier than full fine-tuning.
+
+Prompt injection:
+Prompt injection happens when untrusted text tries to override instructions. Retrieved documents in RAG are untrusted. Defend with permission checks, tool approval, input validation, output validation, and strict separation of system instructions from retrieved content.
+
+Access control:
+Enterprise RAG must filter documents by user permission. Never retrieve or show chunks the user cannot access.
+
+Guardrails:
+Guardrails validate inputs, outputs, tool calls, retrieval, citations, SQL, and safety-sensitive actions.
+
+SQL agents:
+Use read-only roles, schema context, query limits, timeouts, destructive query blocking, and logging.
+
+Production architecture:
+Frontend -> API -> LangChain/LangGraph service -> model provider/local model -> vector DB -> databases/tools -> observability.
+
+Latency optimization:
+Use smaller models for easy tasks, cache results, stream output, reduce prompt size, retrieve fewer better chunks, and parallelize independent work.
+
+Cost optimization:
+Route easy tasks to cheaper models, cache embeddings/responses, summarize history, avoid unnecessary agent loops, and monitor token usage.
+
+Evaluation:
+Offline evaluation uses fixed test cases. Online evaluation monitors real usage. LLM-as-judge can help evaluate faithfulness and relevance, but should be calibrated with human review.
+
+
+FINAL MASTER SUMMARY
+
+LLM is the brain. Prompt is the instruction. Parser makes output usable. Embedding turns meaning into vectors. Vector store stores vectors. Retriever finds relevant chunks. RAG retrieves knowledge before generation. Tool lets the model act. Agent lets the model decide steps. LangChain connects components. LangGraph controls reliable workflows. Memory remembers context. MCP standardizes external connections. Ollama runs models locally. Evaluation proves whether the system works.

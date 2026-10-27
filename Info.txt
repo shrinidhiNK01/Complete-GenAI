@@ -73,3 +73,13 @@ Corpus:- Entire text
 Vocabulary :- Unique word
 Documents :- 1 line
 word:- single word 
+
+Generative AI = Multi-Model capability,creating content
+Agentic AI = Multi-agent System, Creating a System of multiple LLM agents,solving a goal
+LLM:
+====
+It takes unstructured data from the user in the form of language and converts into vector embedding
+These vector embeddings are used to find relationship between the data 
+Then it generate the output 
+
+GenAI is building block of Agentic AI
